@@ -17,3 +17,7 @@ JL.CONFIG = {
     {m:10000,name:'MYSTIC JUNGLE',sky1:'#897bdc',sky2:'#e3d7fa',far:'#7079a3',mid:'#4d5588',near:'#303762',ground:'#554468'}
   ]
 };
+JL.storage={
+  get(k){try{return window.localStorage?localStorage.getItem(k):null}catch(e){return null}},
+  set(k,v){try{if(window.localStorage)localStorage.setItem(k,v)}catch(e){}}
+};
