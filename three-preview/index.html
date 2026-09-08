@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="theme-color" content="#07110b" />
+  <title>Jungle Launch v0.4 — 3D Preview</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CyberArtsBR/jungle-launch@three-migration/styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Jungle Launch 3D game"></canvas>
+    <div id="hud" class="hud">
+      <section class="topbar panel">
+        <div class="brand"><div class="brand-title">JUNGLE LAUNCH</div><div class="brand-sub"><span id="biome">TREEHOUSE FOREST</span> <span class="dot">•</span> <span>3D ALPHA</span></div></div>
+        <div class="run-metrics"><div id="distance" class="distance">0.0 m</div><div id="speed" class="speed">0.0 m/s</div></div>
+        <div class="records"><div>BEST <strong id="best">0.0 m</strong></div><div class="banana">BANANAS <strong id="bananas">0</strong></div></div>
+      </section>
+      <section class="ability panel">
+        <div class="ability-label">AIR BOOST</div><div id="boost-pips" class="pips"><i></i><i></i><i></i></div>
+        <div class="ability-label dive-label">DIVE</div><div class="meter"><span id="dive-fill"></span></div><div id="shield" class="shield"></div>
+      </section>
+      <section id="upcoming" class="upcoming panel hidden"></section>
+      <section id="combo" class="combo hidden"></section>
+      <section id="banner" class="banner hidden"><div id="banner-title" class="banner-title"></div><div id="banner-sub" class="banner-sub"></div></section>
+      <section id="special" class="special hidden"><div class="special-title">SPECIAL — PRESS BOOST!</div><div class="special-meter"><span id="special-fill"></span></div></section>
+      <section id="power-ui" class="power-ui hidden"><div class="power-label">POWER</div><div class="power-track"><span id="power-fill"></span><em class="perfect-zone"></em></div><div id="power-value" class="power-value">50%</div></section>
+      <section id="menu" class="screen active"><div class="menu-card"><div class="eyebrow">THREE.JS MIGRATION PREVIEW</div><h1>JUNGLE<br><span>LAUNCH</span></h1><p>Full 3D presentation. Deterministic 2D gameplay physics underneath.</p><div class="start-button">START RUN</div><div class="controls">SPACE / CLICK — ACTION &nbsp; • &nbsp; SHIFT / RIGHT CLICK — DIVE &nbsp; • &nbsp; F2 — DEBUG</div><div id="asset-status" class="asset-status">Loading 3D character…</div></div></section>
+      <section id="gameover" class="screen"><div class="menu-card gameover-card"><div class="eyebrow">RUN COMPLETE</div><h2 id="final-distance">0.0 m</h2><div id="final-stats" class="stats"></div><div class="start-button">LAUNCH AGAIN</div><div id="final-seed" class="seed"></div></div></section>
+      <div id="debug" class="debug hidden"></div><div class="quality-badge">PBR • SHADOWS • BLOOM • THREE.JS</div>
+    </div>
+  </main>
+  <script src="../src/config.js"></script>
+  <script src="../src/rng.js"></script>
+  <script src="../src/physics.js"></script>
+  <script src="../src/encounters.js"></script>
+  <script src="../src/world.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/CyberArtsBR/jungle-launch@three-migration/src/game3d.js"></script>
+</body>
+</html>
