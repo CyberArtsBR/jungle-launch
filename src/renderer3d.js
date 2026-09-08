@@ -113,7 +113,7 @@ export class Renderer3D{
 
   async loadCharacter(){
     try{
-      const gltf=await new GLTFLoader().loadAsync('assets/models/professional.glb'),model=gltf.scene;
+      const gltf=await new GLTFLoader().loadAsync(new URL('../assets/models/professional.glb', import.meta.url).href),model=gltf.scene;
       model.updateMatrixWorld(true);const box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3()),sc=1.48/Math.max(.001,size.y);
       model.scale.setScalar(sc);model.position.set(-center.x*sc,-center.y*sc,-center.z*sc);model.rotation.y=Math.PI/2;shadow(model);
       model.traverse(o=>{if(o.isBone){this.playerBones.set(o.name,o);this.baseBoneQuats.set(o.name,o.quaternion.clone());}});
